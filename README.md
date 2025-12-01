@@ -1,16 +1,26 @@
-# vet_finder
+# Vet Finder
 
-A new Flutter project.
+Projeto inicial desenvolvido com **Flutter**.  
+Este repositório servirá como base para o desenvolvimento do sistema Vet Finder.
 
-## Getting Started
+## Integrantes
 
-This project is a starting point for a Flutter application.
+- **Lucas Morais**
+- **Thalisson Moura**
 
-A few resources to get you started if this is your first Flutter project:
+## Como executar?
+1. Baixar as dependências do projeto
+```bash
+flutter pub get
+```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+2. Configurar a Chave da API do Google Maps (Android)
+```bash
+<meta-data android:name="com.google.android.geo.API_KEY"
+       android:value="chave-da-api-aqui"/>
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+3. Executar o aplicativo
+```bash
+flutter run
+```
