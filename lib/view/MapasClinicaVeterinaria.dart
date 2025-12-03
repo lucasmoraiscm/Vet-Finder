@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:provider/provider.dart';
+import '../controller/ClinicaVeterinariaController.dart';
+import '../model/ClinicaVeterinariaModel.dart';
 
 class MapasClinicaVeterinaria extends StatefulWidget {
   const MapasClinicaVeterinaria({super.key, required this.title});
@@ -22,51 +25,28 @@ class _MapasClinicaVeterinaria extends State<MapasClinicaVeterinaria> {
     mapController = controller;
   }
 
-  _carregarMarcadores () {
+  _carregarMarcadores() async {
+    final controller = Provider.of<ClinicaVeterinariaController>(context, listen: false);
+    await controller.loadClinicas();
+    _atualizarMarcadores(controller.clinicas);
+  }
+
+  void _atualizarMarcadores(List<ClinicaVeterinaria> clinicas) {
     Set<Marker> marcadoresLocal = {};
-    Marker marcado1 = Marker(
-      markerId: MarkerId('01'),
-      position: LatLng(-5.0956675959730156, -42.80873896815961),
-      infoWindow: InfoWindow(
-        title: "Amigos com Patas",
-      ),
-    );
-    Marker marcado2 = Marker(
-      markerId: MarkerId('02'),
-      position: LatLng(-5.106485252533034, -42.80687222833813),
-      infoWindow: InfoWindow(
-        title: "UbPet Teresina",
-      )
-    );
-    Marker marcado3 = Marker(
-      markerId: MarkerId('03'),
-      position: LatLng(-5.0942268277670975, -42.797168510315025),
-      infoWindow: InfoWindow(
-        title: "Dr. Pet Teresina",
-      )
-    );
-    marcadoresLocal.add(marcado1);
-    marcadoresLocal.add(marcado2);
-    marcadoresLocal.add(marcado3);
+    for (var clinica in clinicas) {
+      final marker = Marker(
+        markerId: MarkerId(clinica.id.toString()),
+        position: clinica.localizacao,
+        infoWindow: InfoWindow(title: clinica.nome),
+      );
+      marcadoresLocal.add(marker);
+    }
     setState(() {
       _marcadores = marcadoresLocal;
     });
   }
 
   _localizacaoAtual() async {
-    LocationPermission permission = await Geolocator.checkPermission();
-    
-    if (permission == LocationPermission.denied) {
-      permission = await Geolocator.requestPermission();
-      if (permission == LocationPermission.denied) {
-        return;
-      }
-    }
-
-    if (permission == LocationPermission.deniedForever) {
-      return;
-    }
-
     Position position = await Geolocator.getCurrentPosition(
       desiredAccuracy: LocationAccuracy.high,
     );
@@ -106,7 +86,7 @@ class _MapasClinicaVeterinaria extends State<MapasClinicaVeterinaria> {
         markers: _marcadores,
         myLocationEnabled: true,
         myLocationButtonEnabled: true,
-      )
+      ),
     );
   }
 }

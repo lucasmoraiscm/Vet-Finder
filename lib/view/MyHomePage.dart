@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import './MapasClinicaVeterinaria.dart';
+import './ListagemClinicaVeterinaria.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -13,8 +15,19 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   void _verMapa() {
     Navigator.push(
-      context, 
-      MaterialPageRoute(builder: (context) => MapasClinicaVeterinaria(title: widget.title))
+      context,
+      MaterialPageRoute(
+        builder: (context) => MapasClinicaVeterinaria(title: widget.title),
+      ),
+    );
+  }
+
+  void _verListaClinicas() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => ClinicaVeterinariaListPage(),
+      ), // Navega para a listagem
     );
   }
 
@@ -31,22 +44,37 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
             children: [
               SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    onPressed: _verMapa,
-                    style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(vertical: 15),
-                      backgroundColor: Colors.green,
-                      foregroundColor: Colors.white,
-                    ),
-                    child: const Text(
-                      'Mapas',
-                      style: TextStyle(fontSize: 18),
-                    ),
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: _verMapa,
+                  style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(vertical: 15),
+                    backgroundColor: Colors.green,
+                    foregroundColor: Colors.white,
+                  ),
+                  child: const Text('Mapas', style: TextStyle(fontSize: 18)),
+                ),
+              ),
+              const SizedBox(height: 16),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed:
+                      _verListaClinicas, // Chama a função para navegar para a lista
+                  style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(vertical: 15),
+                    backgroundColor:
+                        Colors.green, // Você pode escolher a cor que preferir
+                    foregroundColor: Colors.white,
+                  ),
+                  child: const Text(
+                    'Clínicas Veterinárias',
+                    style: TextStyle(fontSize: 18),
                   ),
                 ),
+              ),
             ],
-          )
+          ),
         ),
       ),
     );
