@@ -56,15 +56,17 @@ class _LoginUsuarioState extends State<LoginUsuario> {
           padding: const EdgeInsets.all(24.0),
           child: Column(
             children: [
-              const Icon(Icons.pets, size: 80, color: Colors.green),
+              Image.asset('assets/images/logo_vet_finder.png'),
               const SizedBox(height: 30),
 
               TextField(
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'E-mail',
-              ),
-              controller: _emailController,
+                keyboardType: TextInputType.emailAddress,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'E-mail',
+                  prefixIcon: Icon(Icons.email),
+                ),
+                controller: _emailController,
               ),
               const SizedBox(height: 20),
 
@@ -73,6 +75,7 @@ class _LoginUsuarioState extends State<LoginUsuario> {
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Senha',
+                  prefixIcon: Icon(Icons.password),
                 ),
                 controller: _senhaController,
               ),
