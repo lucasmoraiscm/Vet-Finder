@@ -58,6 +58,22 @@ class ClinicaVeterinariaDB {
           nome: "Dr. Pet Teresina",
           localizacao: LatLng(-5.0942268277670975, -42.797168510315025),
         ),
+        ClinicaVeterinaria(
+          nome: "Petiaria",
+          localizacao: LatLng(-5.09690779265524, -42.788498018614234),
+        ),
+        ClinicaVeterinaria(
+          nome: "Hospital Veterinário Animal's",
+          localizacao: LatLng(-5.065971027961669, -42.79395865447604),
+        ),
+        ClinicaVeterinaria(
+          nome: "BioVet São Francisco",
+          localizacao: LatLng(-5.074238872626542, -42.823974221929404),
+        ),
+        ClinicaVeterinaria(
+          nome: "Clínica Veterinária Agroleste",
+          localizacao: LatLng(-5.08036149619016, -42.77925664297075),
+        ),
       ];
 
       for (var clinica in clinicas) {
