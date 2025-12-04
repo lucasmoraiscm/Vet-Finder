@@ -39,23 +39,13 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: Container(
+        child: SingleChildScrollView(
           padding: const EdgeInsets.all(24.0),
           child: Column(
             children: [
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: _verMapa,
-                  style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(vertical: 15),
-                    backgroundColor: Colors.green,
-                    foregroundColor: Colors.white,
-                  ),
-                  child: const Text('Mapas', style: TextStyle(fontSize: 18)),
-                ),
-              ),
-              const SizedBox(height: 16),
+              Image.asset('assets/images/logo_vet_finder.png'),
+              const SizedBox(height: 80),
+
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
@@ -71,6 +61,19 @@ class _MyHomePageState extends State<MyHomePage> {
                     'Clínicas Veterinárias',
                     style: TextStyle(fontSize: 18),
                   ),
+                ),
+              ),
+              const SizedBox(height: 26),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: _verMapa,
+                  style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(vertical: 15),
+                    backgroundColor: Colors.green,
+                    foregroundColor: Colors.white,
+                  ),
+                  child: const Text('Mapas', style: TextStyle(fontSize: 18)),
                 ),
               ),
             ],
