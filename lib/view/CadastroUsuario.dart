@@ -89,15 +89,18 @@ class _CadastroUsuarioState extends State<CadastroUsuario> {
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Nome',
+                  prefixIcon: Icon(Icons.person),
                 ),
                 controller: _nomeController,
               ),
               const SizedBox(height: 20),
 
               TextField(
+                keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'E-mail',
+                  prefixIcon: Icon(Icons.email),
                 ),
                 controller: _emailController,
               ),
@@ -108,6 +111,7 @@ class _CadastroUsuarioState extends State<CadastroUsuario> {
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Senha',
+                  prefixIcon: Icon(Icons.password),
                 ),
                 controller: _senhaController,
               ),
