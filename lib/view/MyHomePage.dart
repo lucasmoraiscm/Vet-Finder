@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import './MapasClinicaVeterinaria.dart';
 import './ListagemClinicaVeterinaria.dart';
+import './LoginUsuario.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -27,7 +28,16 @@ class _MyHomePageState extends State<MyHomePage> {
       context,
       MaterialPageRoute(
         builder: (context) => ClinicaVeterinariaListPage(),
-      ), // Navega para a listagem
+      ),
+    );
+  }
+
+  void _sair() {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (context) => LoginUsuario(),
+      ),
     );
   }
 
@@ -45,16 +55,13 @@ class _MyHomePageState extends State<MyHomePage> {
             children: [
               Image.asset('assets/images/logo_vet_finder.png'),
               const SizedBox(height: 80),
-
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed:
-                      _verListaClinicas, // Chama a função para navegar para a lista
+                  onPressed: _verListaClinicas,
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(vertical: 15),
-                    backgroundColor:
-                        Colors.green, // Você pode escolher a cor que preferir
+                    backgroundColor: Colors.green,
                     foregroundColor: Colors.white,
                   ),
                   child: const Text(
@@ -74,6 +81,19 @@ class _MyHomePageState extends State<MyHomePage> {
                     foregroundColor: Colors.white,
                   ),
                   child: const Text('Mapas', style: TextStyle(fontSize: 18)),
+                ),
+              ),
+              const SizedBox(height: 26),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: _sair,
+                  style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(vertical: 15),
+                    backgroundColor: Colors.red,
+                    foregroundColor: Colors.white,
+                  ),
+                  child: const Text('Sair', style: TextStyle(fontSize: 18)),
                 ),
               ),
             ],
