@@ -3,7 +3,6 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 import '../controller/ClinicaVeterinariaController.dart';
 import '../model/ClinicaVeterinariaModel.dart';
-import 'ListagemClinicaVeterinaria.dart';
 
 class CadastroClinicaVeterinaria extends StatefulWidget {
   const CadastroClinicaVeterinaria({super.key});
