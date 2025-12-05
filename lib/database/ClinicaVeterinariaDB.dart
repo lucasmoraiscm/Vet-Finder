@@ -34,7 +34,8 @@ class ClinicaVeterinariaDB {
         CREATE TABLE clinicas_veterinaria(
           id INTEGER PRIMARY KEY AUTOINCREMENT,
           nome TEXT,
-          localizacao TEXT
+          latitude REAL,
+          longitude REAL
         )
       ''');
       },
