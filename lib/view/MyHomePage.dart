@@ -26,18 +26,14 @@ class _MyHomePageState extends State<MyHomePage> {
   void _verListaClinicas() {
     Navigator.push(
       context,
-      MaterialPageRoute(
-        builder: (context) => ClinicaVeterinariaListPage(),
-      ),
+      MaterialPageRoute(builder: (context) => ClinicaVeterinariaListPage()),
     );
   }
 
   void _sair() {
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(
-        builder: (context) => LoginUsuario(),
-      ),
+      MaterialPageRoute(builder: (context) => LoginUsuario()),
     );
   }
 
