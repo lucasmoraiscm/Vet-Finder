@@ -3,6 +3,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 import '../controller/ClinicaVeterinariaController.dart';
 import '../model/ClinicaVeterinariaModel.dart';
+import './CadastroClinicaVeterinaria.dart';
 import './EditarClinica.dart';
 
 class ClinicaVeterinariaListPage extends StatefulWidget {
@@ -124,13 +125,36 @@ class _ClinicaVeterinariaListPageState
     );
   }
 
+  void _irCadastroClinicaVeterinaria() {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => CadastroClinicaVeterinaria()));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Clínicas Veterinárias'),
         backgroundColor: Colors.green,
+        foregroundColor: Colors.white,
         centerTitle: true,
+        actions: <Widget>[
+          IconButton(
+            onPressed: () async {
+              final result = await Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) =>
+                      CadastroClinicaVeterinaria(),
+                ),
+              );
+
+              if (result != null && result) {
+                _carregarMarcadores();
+              }
+            },
+            icon: const Icon(Icons.add)
+          ),
+        ],
       ),
       body: Consumer<ClinicaVeterinariaController>(
         builder: (context, controller, child) {
