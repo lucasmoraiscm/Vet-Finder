@@ -125,10 +125,6 @@ class _ClinicaVeterinariaListPageState
     );
   }
 
-  void _irCadastroClinicaVeterinaria() {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => CadastroClinicaVeterinaria()));
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
