@@ -27,7 +27,6 @@ class ClinicaVeterinariaController extends ChangeNotifier {
   Future<void> deleteClinica(int id) async {
     await ClinicaVeterinariaDB().deleteClinicaVeterinaria(id);
     await loadClinicas();
-    print("Clínica excluída e lista atualizada.");
     notifyListeners();
   }
 }
