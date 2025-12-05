@@ -87,8 +87,10 @@ class _MapasClinicaVeterinaria extends State<MapasClinicaVeterinaria> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
+        title: const Text("Mapas"),
+        backgroundColor: Colors.green,
+        foregroundColor: Colors.white,
+        centerTitle: true,  
       ),
       body: GoogleMap(
         onMapCreated: _onMapCreated,

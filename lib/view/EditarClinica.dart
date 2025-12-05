@@ -68,72 +68,78 @@ class _EditarClinicaPageState extends State<EditarClinicaPage> {
       appBar: AppBar(
         title: Text('Editar Clínica Veterinária'),
         backgroundColor: Colors.green,
+        foregroundColor: Colors.white,
         centerTitle: true,
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Form(
-            key: _formKey,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                TextFormField(
-                  controller: _nomeController,
-                  decoration: InputDecoration(
-                    labelText: 'Nome da Clínica',
-                    prefixIcon: Icon(Icons.local_hospital),
+      body: Center(
+        child:  SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Form(
+              key: _formKey,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  TextFormField(
+                    controller: _nomeController,
+                    decoration: InputDecoration(
+                      labelText: 'Nome da Clínica',
+                      prefixIcon: Icon(Icons.local_hospital),
+                    ),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Por favor, insira o nome da clínica';
+                      }
+                      return null;
+                    },
                   ),
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Por favor, insira o nome da clínica';
-                    }
-                    return null;
-                  },
-                ),
-                const SizedBox(height: 16),
+                  const SizedBox(height: 20),
 
-                TextFormField(
-                  controller: _latitudeController,
-                  decoration: InputDecoration(
-                    labelText: 'Latitude',
-                    prefixIcon: Icon(Icons.location_on),
+                  TextFormField(
+                    controller: _latitudeController,
+                    decoration: InputDecoration(
+                      labelText: 'Latitude',
+                      prefixIcon: Icon(Icons.location_on),
+                    ),
+                    keyboardType: TextInputType.number,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Por favor, insira a latitude';
+                      }
+                      return null;
+                    },
                   ),
-                  keyboardType: TextInputType.number,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Por favor, insira a latitude';
-                    }
-                    return null;
-                  },
-                ),
-                const SizedBox(height: 16),
+                  const SizedBox(height: 20),
 
-                TextFormField(
-                  controller: _longitudeController,
-                  decoration: InputDecoration(
-                    labelText: 'Longitude',
-                    prefixIcon: Icon(Icons.location_on),
+                  TextFormField(
+                    controller: _longitudeController,
+                    decoration: InputDecoration(
+                      labelText: 'Longitude',
+                      prefixIcon: Icon(Icons.location_on),
+                    ),
+                    keyboardType: TextInputType.number,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Por favor, insira a longitude';
+                      }
+                      return null;
+                    },
                   ),
-                  keyboardType: TextInputType.number,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Por favor, insira a longitude';
-                    }
-                    return null;
-                  },
-                ),
-                const SizedBox(height: 32),
+                  const SizedBox(height: 30),
 
-                ElevatedButton(
-                  onPressed: _salvarEdicao,
-                  child: Text('Salvar'),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.green,
-                    padding: EdgeInsets.symmetric(horizontal: 50, vertical: 12),
+                  Center(
+                    child: ElevatedButton(
+                      onPressed: _salvarEdicao,
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.green,
+                        foregroundColor: Colors.white,
+                        padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+                      ),
+                      child: Text('Salvar'),
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
