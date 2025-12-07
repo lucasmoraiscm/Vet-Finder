@@ -63,6 +63,7 @@ class _CadastroUsuarioState extends State<CadastroUsuario> {
       appBar: AppBar(
         title: const Text("Cadastrar Usuário"),
         backgroundColor: Colors.green,
+        foregroundColor: Colors.white,
         centerTitle: true,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
