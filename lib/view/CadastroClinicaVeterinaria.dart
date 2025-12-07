@@ -13,11 +13,13 @@ class CadastroClinicaVeterinaria extends StatefulWidget {
 
 class _CadastroClinicaVeterinariaState extends State<CadastroClinicaVeterinaria> {
   final _nomeController = TextEditingController();
+  final _enderecoController = TextEditingController();
   final _latController = TextEditingController();
   final _lngController = TextEditingController();
 
   void _fazerCadastro() async {
     final nome = _nomeController.text;
+    final endereco = _enderecoController.text;
     final lat = _latController.text;
     final lng = _lngController.text;
 
@@ -38,6 +40,7 @@ class _CadastroClinicaVeterinariaState extends State<CadastroClinicaVeterinaria>
 
     final clinicaVeterinaria = ClinicaVeterinaria(
       nome: nome, 
+      endereco: endereco,
       localizacao: LatLng(double.parse(lat), double.parse(lng))
     );
 
@@ -84,6 +87,16 @@ class _CadastroClinicaVeterinariaState extends State<CadastroClinicaVeterinaria>
                   prefixIcon: Icon(Icons.local_hospital),
                 ),
                 controller: _nomeController,
+              ),
+              const SizedBox(height: 20),
+
+              TextField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Endereço',
+                  prefixIcon: Icon(Icons.map_rounded),
+                ),
+                controller: _enderecoController,
               ),
               const SizedBox(height: 20),
 

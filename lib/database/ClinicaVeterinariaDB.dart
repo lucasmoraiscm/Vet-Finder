@@ -34,6 +34,7 @@ class ClinicaVeterinariaDB {
         CREATE TABLE clinicas_veterinaria(
           id INTEGER PRIMARY KEY AUTOINCREMENT,
           nome TEXT,
+          endereco TEXT,
           latitude REAL,
           longitude REAL
         )
@@ -49,30 +50,37 @@ class ClinicaVeterinariaDB {
       List<ClinicaVeterinaria> clinicas = [
         ClinicaVeterinaria(
           nome: "Amigos com Patas",
+          endereco: "R. Sete de Setembro, 755 - Centro (Sul), Teresina - PI, 64018-630",
           localizacao: LatLng(-5.0956675959730156, -42.80873896815961),
         ),
         ClinicaVeterinaria(
           nome: "UbPet Teresina",
+          endereco: "R. Barroso, 1928 - Vermelha, Teresina - PI, 64018-520",
           localizacao: LatLng(-5.106485252533034, -42.80687222833813),
         ),
         ClinicaVeterinaria(
           nome: "Dr. Pet Teresina",
+          endereco: "Av. Leônidas Melo, 546 - Piçarra, Teresina - PI, 64015-120",
           localizacao: LatLng(-5.0942268277670975, -42.797168510315025),
         ),
         ClinicaVeterinaria(
           nome: "Petiaria",
+          endereco: "Av. Barão de Castelo Branco, 01380 - Cristo Rei, Teresina - PI, 64014-325",
           localizacao: LatLng(-5.09690779265524, -42.788498018614234),
         ),
         ClinicaVeterinaria(
           nome: "Hospital Veterinário Animal's",
+          endereco: "Av. Nossa Sra. de Fátima, 1525 - Fátima, Teresina - PI, 64048-180",
           localizacao: LatLng(-5.065971027961669, -42.79395865447604),
         ),
         ClinicaVeterinaria(
           nome: "BioVet São Francisco",
+          endereco: "R. Rui Barbosa, 2076 - Pirajá, Teresina - PI, 64001-090",
           localizacao: LatLng(-5.074238872626542, -42.823974221929404),
         ),
         ClinicaVeterinaria(
           nome: "Clínica Veterinária Agroleste",
+          endereco: "Av. João XXIII, 2000 - Noivos, Teresina - PI, 64051-005",
           localizacao: LatLng(-5.08036149619016, -42.77925664297075),
         ),
       ];

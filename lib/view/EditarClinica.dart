@@ -16,6 +16,7 @@ class EditarClinicaPage extends StatefulWidget {
 class _EditarClinicaPageState extends State<EditarClinicaPage> {
   final _formKey = GlobalKey<FormState>();
   late TextEditingController _nomeController;
+  late TextEditingController _enderecoController;
   late TextEditingController _latitudeController;
   late TextEditingController _longitudeController;
 
@@ -24,6 +25,9 @@ class _EditarClinicaPageState extends State<EditarClinicaPage> {
     super.initState();
     _nomeController = TextEditingController(
       text: widget.clinica.infoWindow.title ?? '',
+    );
+    _enderecoController = TextEditingController(
+      text: widget.clinica.infoWindow.snippet ?? '',
     );
     _latitudeController = TextEditingController(
       text: widget.clinica.position.latitude.toString(),
@@ -36,6 +40,7 @@ class _EditarClinicaPageState extends State<EditarClinicaPage> {
   @override
   void dispose() {
     _nomeController.dispose();
+    _enderecoController.dispose();
     _latitudeController.dispose();
     _longitudeController.dispose();
     super.dispose();
@@ -46,6 +51,7 @@ class _EditarClinicaPageState extends State<EditarClinicaPage> {
       final novaClinica = ClinicaVeterinaria(
         id: int.parse(widget.clinica.markerId.value),
         nome: _nomeController.text,
+        endereco: _enderecoController.text,
         localizacao: LatLng(
           double.parse(_latitudeController.text),
           double.parse(_longitudeController.text),
@@ -89,6 +95,21 @@ class _EditarClinicaPageState extends State<EditarClinicaPage> {
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Por favor, insira o nome da clínica';
+                      }
+                      return null;
+                    },
+                  ),
+                  const SizedBox(height: 20),
+
+                  TextFormField(
+                    controller: _enderecoController,
+                    decoration: InputDecoration(
+                      labelText: 'Endereço da Clínica',
+                      prefixIcon: Icon(Icons.map_rounded),
+                    ),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Por favor, insira o endereço da clínica';
                       }
                       return null;
                     },

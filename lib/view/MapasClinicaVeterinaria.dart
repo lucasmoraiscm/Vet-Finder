@@ -37,7 +37,7 @@ class _MapasClinicaVeterinaria extends State<MapasClinicaVeterinaria> {
       final marker = Marker(
         markerId: MarkerId(clinica.id.toString()),
         position: clinica.localizacao,
-        infoWindow: InfoWindow(title: clinica.nome),
+        infoWindow: InfoWindow(title: clinica.nome, snippet: clinica.endereco),
       );
       marcadoresLocal.add(marker);
     }

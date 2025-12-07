@@ -37,7 +37,7 @@ class _ClinicaVeterinariaListPageState
       final marker = Marker(
         markerId: MarkerId(clinica.id.toString()),
         position: clinica.localizacao,
-        infoWindow: InfoWindow(title: clinica.nome),
+        infoWindow: InfoWindow(title: clinica.nome, snippet: clinica.endereco),
       );
       marcadoresLocal.add(marker);
     }
@@ -89,6 +89,12 @@ class _ClinicaVeterinariaListPageState
                   ),
                   SizedBox(height: 8),
                   Text(
+                    'Endereço: ${clinica.endereco}',
+                    style: TextStyle(fontSize: 16),
+                    textAlign: TextAlign.center,
+                  ),
+                  SizedBox(height: 8),
+                  Text(
                     'Latitude: ${clinica.localizacao.latitude}',
                     style: TextStyle(fontSize: 16),
                     textAlign: TextAlign.center,
@@ -107,6 +113,7 @@ class _ClinicaVeterinariaListPageState
                     child: Text('Fechar'),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.green,
+                      foregroundColor: Colors.white,
                       padding: EdgeInsets.symmetric(
                         horizontal: 30,
                         vertical: 12,
@@ -189,7 +196,7 @@ class _ClinicaVeterinariaListPageState
                     ),
                   ),
                   subtitle: Text(
-                    'Localização: ${marcador.position.latitude}, ${marcador.position.longitude}',
+                    marcador.infoWindow.snippet ?? '',
                     style: TextStyle(fontSize: 14, color: Colors.grey),
                   ),
                   trailing: Row(
